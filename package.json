@@ -6,6 +6,10 @@
     "start": "node src/app.js"
   },
   "dependencies": {
-    "express": "^4.19.2"
+    "express": "^4.19.2",
+    "cors": "^2.8.5",
+    "@prisma/client": "5.7.1",
+    "@clerk/clerk-sdk-node": "^4.13.23",
+    "prisma": "^5.0.0"
   }
 }
