@@ -1,10 +1,12 @@
-FROM node:18-alpine
+﻿FROM node:18-slim
 
 WORKDIR /app
 
-# Install dependencies
+# Copy package files
 COPY package*.json ./
-RUN npm ci --only=production
+
+# Install all dependencies (prisma is now in dependencies)
+RUN npm ci
 
 # Copy Prisma schema
 COPY prisma ./prisma/
