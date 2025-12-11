@@ -1,3 +1,4 @@
+// Schema cleaned for Koyeb deployment - BOM removed
 generator client {
   provider = "prisma-client-js"
 }
