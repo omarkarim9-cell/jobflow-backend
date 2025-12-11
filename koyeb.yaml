@@ -1,0 +1,28 @@
+name: jobflow-backend
+services:
+  - name: app
+    env:
+      - name: NODE_ENV
+        value: production
+      - name: CLERK_SECRET_KEY
+        value: sk_test_zbzNHXOKFn9VGP9ioioYwsf8MJSjIozK1AlblrjCge
+      - name: DATABASE_URL
+        value: postgresql://neondb_owner:npg_OUJ9MzWH1eqn@ep-sweet-water-afxpaagf-pooler.c-2.us-west-2.aws.neon.tech/neondb?sslmode=require
+    build:
+      builder: dockerfile
+    ports:
+      - port: 8080
+        http: true
+    routes:
+      - path: /
+        port: 8080
+    healthchecks:
+      http:
+        path: /api/health
+        port: 8080
+        interval: 30
+        timeout: 3
+        initial_delay: 10
+    scaling:
+      min: 1
+      max: 1
